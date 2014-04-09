@@ -45,19 +45,26 @@ class sistema extends CI_Controller {
         $crud->set_theme('datatables');
         $crud->set_table('personal');
         $crud->where('socio', $id);
-        $crud->columns('idPersonal','nombrePersonal');
+        $crud->columns('idPersonal', 'nombrePersonal');
         $crud->set_subject('Personal');
-        $crud->add_action('', '', 'sistema/socioConsolidado','ui-icon-plus');
-   
-        
+        $crud->add_action('', '', 'sistema/socioConsolidado', 'ui-icon-plus');
 
-        
         $arr['tabla'] = $crud->render();
 
-        
-        $this->load->view('Paginas/socio',$arr);
+
+        $this->load->view('Paginas/socio', $arr);
     }
-     public function socioConsolidado($id = null) {
-         $this->load->view('Paginas/socioConsolidado',$arr);
-     }
+
+    public function socioConsolidado($id = null) {
+        $this->load->model('socio', 'socio');
+        $arr['socio'] = $this->socio->get_socio($id);
+        $this->load->model('aporte', 'aporte');
+        $arr['aportes'] = $this->aporte->get_aportes($id);
+        $this->load->model('cuenta', 'cuenta');
+        $arr['cuentas'] = $this->cuenta->get_cuentas($id);
+        $this->load->model('credito', 'credito');
+        $arr['creditos'] = $this->credito->get_creditos($id);
+        $this->load->view('Paginas/socioConsolidado', $arr);
+    }
+
 }

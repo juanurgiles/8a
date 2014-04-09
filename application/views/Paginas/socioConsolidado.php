@@ -1,5 +1,7 @@
-<?php require_once('../Connections/cooperativa.php'); ?>
-<?php
+<?php 
+$assets = base_url()."assets/";
+?>
+<?php/*
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
@@ -69,46 +71,48 @@ mysql_select_db($database_cooperativa, $cooperativa);
 $query_Creditos = sprintf("SELECT * FROM creditos WHERE idPersonal = %s and creditos.estado='Vigente'", GetSQLValueString($colname_Creditos, "int"));
 $Creditos = mysql_query($query_Creditos, $cooperativa) or die(mysql_error());
 $row_Creditos = mysql_fetch_assoc($Creditos);
-$totalRows_Creditos = mysql_num_rows($Creditos);
+$totalRows_Creditos = mysql_num_rows($Creditos);*/
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Documento sin título</title>
-<script src="../SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script>
-<link href="../SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />
+<title>Documento sin tï¿½tulo</title>
+<script src="<?php echo $assets ?>SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script>
+<link href="<?php echo $assets ?>SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-<h1>Actividades del <?php echo $row_socio['socio']==1?"Socio":"Cliente"; ?></h1>
-<p><?php echo $row_socio['apellidoPersonal']; ?> <?php echo $row_socio['nombrePersonal']; ?></p>
-<?php if ($row_socio['socio']==1){
+<h1>Actividades del <?php echo $socio->socio==1?"Socio":"Cliente"; ?></h1>
+<p><?php echo $socio->apellidoPersonal; ?> <?php echo $socio->nombrePersonal; ?></p>
+<?php if ($socio->socio==1){
 ?>
 <div id="CollapsiblePanel1" class="CollapsiblePanel">
-  <div class="CollapsiblePanelTab" tabindex="0"><h2>Aportes <img src="../images/b_browse.png" width="16" height="16" /></h2></div>
-  <div class="CollapsiblePanelContent"><?php if ($totalRows_aportes>0){?><table border="1">
+  <div class="CollapsiblePanelTab" tabindex="0"><h2>Aportes <img src="<?php echo $assets ?>images/b_browse.png" width="16" height="16" /></h2></div>
+  <div class="CollapsiblePanelContent"><?php if (count($aportes)>0){?><table border="1">
   <tr>
     <td>idAportes</td>
     <td>fecha</td>
     <td>idPersonal</td>
     <td>valor</td>
   </tr>
-  <?php do { ?>
+  <?php foreach ($aportes as $aporte) {
+          
+      ?>
     <tr>
-      <td><?php echo $row_aportes['idAportes']; ?></td>
-      <td><?php echo $row_aportes['fecha']; ?></td>
-      <td><?php echo $row_aportes['idPersonal']; ?></td>
-      <td><?php echo $row_aportes['valor']; ?></td>
+      <td><?php echo $aporte->idAportes; ?></td>
+      <td><?php echo $aporte->fecha; ?></td>
+      <td><?php echo $aporte->idPersonal; ?></td>
+      <td><?php echo $aporte->valor; ?></td>
     </tr>
-    <?php } while ($row_aportes = mysql_fetch_assoc($aportes)); ?>
-</table><?php } else{ echo "No dispone información de Aportes"; }?></div>
+    <?php } //while ($row_aportes = mysql_fetch_assoc($aportes)); ?>
+</table><?php } else{ echo "No dispone informaciï¿½n de Aportes"; }?></div>
 </div>
 <?php } ?>
 <br />
 <div id="CollapsiblePanel2" class="CollapsiblePanel">
-  <div class="CollapsiblePanelTab" tabindex="0"><h2>Cuentas <img src="../images/b_insrow.png" width="16" height="16" /></h2></div>
-  <div class="CollapsiblePanelContent"><?php if($totalRows_Cuentas>0){?><table border="1">
+  <div class="CollapsiblePanelTab" tabindex="0"><h2>Cuentas <img src="<?php echo $assets ?>images/b_insrow.png" width="16" height="16" /></h2></div>
+  <div class="CollapsiblePanelContent"><?php if(count($cuentas)>0){?><table border="1">
   <tr>
     <td>idCuenta</td>
     <td>tipoCuenta</td>
@@ -117,22 +121,24 @@ $totalRows_Creditos = mysql_num_rows($Creditos);
     <td>saldo</td>
     <td>Ultimo Movimiento</td>
   </tr>
-  <?php do { ?>
+  <?php foreach ($cuentas as $cuenta) {
+       
+    ?>
     <tr>
-      <td><?php echo $row_Cuentas['idCuenta']; ?></td>
-      <td><?php echo $row_Cuentas['tipoCuenta']; ?></td>
-      <td><a href="#"><?php echo $row_Cuentas['numeroCuenta']; ?></a></td>
-      <td><?php echo $row_Cuentas['estado']; ?></td>
-      <td><?php echo $row_Cuentas['saldo']; ?></td>
+      <td><?php echo $cuenta->idCuenta; ?></td>
+      <td><?php echo $cuenta->tipoCuenta; ?></td>
+      <td><a href="#"><?php echo $cuenta->numeroCuenta; ?></a></td>
+      <td><?php echo $cuenta->estado; ?></td>
+      <td><?php echo $cuenta->saldo; ?></td>
       <td>&nbsp;</td>
     </tr>
-    <?php } while ($row_Cuentas = mysql_fetch_assoc($Cuentas)); ?>
-</table><?php } else{ echo "No dispone información de Cuentas"; }?></div>
+    <?php } //while ($row_Cuentas = mysql_fetch_assoc($Cuentas)); ?>
+</table><?php } else{ echo "No dispone informaciï¿½n de Cuentas"; }?></div>
 </div>
 <br />
 <div id="CollapsiblePanel3" class="CollapsiblePanel">
-  <div class="CollapsiblePanelTab" tabindex="0"><h2>Cr&eacute;ditos <img src="../images/b_insrow.png" width="16" height="16" /></h2></div>
-  <div class="CollapsiblePanelContent"><?php if ($totalRows_Creditos>0){ ?><table border="1">
+  <div class="CollapsiblePanelTab" tabindex="0"><h2>Cr&eacute;ditos <img src="<?php echo $assets ?>images/b_insrow.png" width="16" height="16" /></h2></div>
+  <div class="CollapsiblePanelContent"><?php if (count($creditos)>0){ ?><table border="1">
   <tr>
     <td>idCredito</td>
     <td>Fecha</td>
@@ -141,21 +147,23 @@ $totalRows_Creditos = mysql_num_rows($Creditos);
     <td>Monto Pagado</td>
     <td>Pagos Pendientes</td>
   </tr>
-  <?php do { ?>
+  <?php foreach ($creditos as $credito) {
+           
+        ?>
     <tr>
-      <td><?php echo $row_Creditos['idCredito']; ?></td>
-      <td><?php echo $row_Creditos['fechaCredito']; ?></td>
-      <td><a href="creditos_rpt.php?idc=<?php echo $row_Creditos['idCredito']; ?>" target="_blank"><?php echo $row_Creditos['detalle']; ?></a></td>
-      <td><?php echo $row_Creditos['montototal']; ?></td>
+      <td><?php echo $credito->idCredito; ?></td>
+      <td><?php echo $credito->fechaCredito; ?></td>
+      <td><a href="creditos_rpt.php?idc=<?php echo $credito->idCredito; ?>" target="_blank"><?php echo $credito->detalle; ?></a></td>
+      <td><?php echo $credito->montototal; ?></td>
       <td>&nbsp;</td>
-      <td><?php echo $row_Creditos['numeropagos']; ?></td>
+      <td><?php echo $credito->numeropagos; ?></td>
     </tr>
-    <?php } while ($row_Creditos = mysql_fetch_assoc($Creditos)); ?>
-</table><?php } else{ echo "No dispone información de Creditos"; }?></div>
+    <?php } //while ($row_Creditos = mysql_fetch_assoc($Creditos)); ?>
+</table><?php } else{ echo "No dispone informaciï¿½n de Creditos"; }?></div>
 </div>
-<p><a href="javascript:history.back(1)">Atrás</a></p>
+<p><a href="javascript:history.back(1)">Atrï¿½s</a></p>
 <script type="text/javascript">
-<?php if ($row_socio['socio']==1){
+<?php if ($socio->socio==1){
 ?>
 var CollapsiblePanel1 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel1", {contentIsOpen:false});
 <?php } ?>
@@ -165,11 +173,11 @@ var CollapsiblePanel3 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel3", {c
 </body>
 </html>
 <?php
-mysql_free_result($aportes);
-
-mysql_free_result($socio);
-
-mysql_free_result($Cuentas);
-
-mysql_free_result($Creditos);
+//mysql_free_result($aportes);
+//
+//mysql_free_result($socio);
+//
+//mysql_free_result($Cuentas);
+//
+//mysql_free_result($Creditos);
 ?>
