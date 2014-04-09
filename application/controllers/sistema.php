@@ -48,7 +48,9 @@ class sistema extends CI_Controller {
         $crud->columns('idPersonal', 'nombrePersonal');
         $crud->set_subject('Personal');
         $crud->add_action('', '', 'sistema/socioConsolidado', 'ui-icon-plus');
-
+        $crud->field_type('pwd', 'password');
+        $crud->field_type('socio','dropdown',
+            array(2 => 'Administrador', 1 => 'Socio',0 => 'Cliente' ));
         $arr['tabla'] = $crud->render();
 
 
