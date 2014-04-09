@@ -20,4 +20,7 @@ class sitio extends CI_Controller {
     public function index(){
         $this->load->view('index');
     }
+    public function inicio1(){
+        $this->load->view('inicio1');
+    }
 }
