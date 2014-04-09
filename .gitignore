@@ -4,3 +4,11 @@
 */cache/*
 */cache/!index.html
 */cache/!.htaccess
+/system/
+/assets/grocery_crud/
+/assets/SpryAssets/
+/assets/media/
+/assets/uploads/
+/application/language/
+/application/config/config.php
+/application/config/database.php
