@@ -1,5 +1,5 @@
-<?php require_once('Connections/cooperativa.php'); ?>
-<?php
+<?php //require_once('Connections/cooperativa.php'); ?>
+<?php/*
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
@@ -29,9 +29,9 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
   }
   return $theValue;
 }
-}
+}*/
 ?>
-<?php
+<?php/*
 // *** Validate request to login to this site.
 if (!isset($_SESSION)) {
   session_start();
@@ -78,7 +78,10 @@ if (isset($_POST['text1'])) {
   else {
     header("Location: ". $MM_redirectLoginFailed );
   }
-}
+}*/
+?>
+<?php 
+$assets = base_url()."assets/";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -90,13 +93,13 @@ body {
 	background-color: #000;
 }
 </style>
-<?php if (isset($_GET['error'])){
-echo "<script>alert('Error de inicio de Sesión');</script>";
-}?>
-<link href="SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<link href="SpryAssets/SpryValidationPassword.css" rel="stylesheet" type="text/css" />
-<script src="SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
-<script src="SpryAssets/SpryValidationPassword.js" type="text/javascript"></script>
+<?php // if (isset($_GET['error'])){
+//echo "<script>alert('Error de inicio de Sesiï¿½n');</script>";
+//}?>
+<link href="<?php echo $assets ?>SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $assets ?>SpryAssets/SpryValidationPassword.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $assets ?>SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+<script src="<?php echo $assets ?>SpryAssets/SpryValidationPassword.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -105,14 +108,14 @@ s
   <tr>
     <td bgcolor="#05619B"><table border="0" align="center" cellpadding="5" cellspacing="0">
       <tr>
-        <td align="center"><img src="images/logo2.png" alt="" width="192" height="119" /></td>
-        <td><img src="images/blank.gif" width="650" height="10" /><br />
-          <img src="images/coop.png" alt="" width="539" height="109" /></td>
+        <td align="center"><img src="<?php echo $assets ?>images/logo2.png" alt="" width="192" height="119" /></td>
+        <td><img src="<?php echo $assets ?>images/blank.gif" width="650" height="10" /><br />
+          <img src="<?php echo $assets ?>images/coop.png" alt="" width="539" height="109" /></td>
         </tr>
       <tr>
-        <td align="center" bgcolor="#EEEEEE"><img src="images/blank.gif" width="100" height="154" /></td>
+        <td align="center" bgcolor="#EEEEEE"><img src="<?php echo $assets ?>images/blank.gif" width="100" height="154" /></td>
         <td bgcolor="#FFFFFF"><h2><em>Inicio de Sesi&oacute;n</em></h2>
-          <form id="form1" name="form1" method="POST" action="<?php echo $loginFormAction; ?>"><table width="0%" border="3" cellspacing="0" cellpadding="5">
+          <form id="form1" name="form1" method="POST" action="<?php //echo $loginFormAction; ?>"><table width="0%" border="3" cellspacing="0" cellpadding="5">
           <tr>
             <td><table border="0" cellspacing="0" cellpadding="5">
               <tr>

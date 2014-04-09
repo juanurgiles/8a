@@ -13,9 +13,12 @@ body {
 	z-index: 1;
 	}
 </style>
-<link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
-<link href="estilos.css" rel="stylesheet" type="text/css" />
-<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<?php 
+$assets = base_url()."assets/";
+?>
+<link href="<?php echo $assets ?>SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $assets ?>estilos.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $assets ?>SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
 <script type="text/javascript">
 function MM_swapImgRestore() { //v3.0
   var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
@@ -39,22 +42,22 @@ function MM_swapImage() { //v3.0
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
 </script>
-<script src="SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
-<link href="SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<link href="SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<link href="SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
-<script src="SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
-<script src="SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
+<script src="<?php echo $assets ?>SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+<link href="<?php echo $assets ?>SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $assets ?>SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $assets ?>SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $assets ?>SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+<script src="<?php echo $assets ?>SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
 </head>
 
-<body onload="MM_preloadImages('images/bancaVirtual1.png')">
+<body onload="MM_preloadImages('<?php echo $assets ?>images/bancaVirtual1.png')">
 <table width="0%" border="3" align="center" cellpadding="5" cellspacing="0">
   <tr>
     <td bgcolor="#05619B"><table border="0" align="center" cellpadding="5" cellspacing="0">
       <tr>
-        <td align="center"><img src="images/logo2.png" alt="" width="192" height="119" /></td>
-        <td><img src="images/blank.gif" width="650" height="10" /><br />
-          <img src="images/coop.png" alt="" width="539" height="109" /></td>
+        <td align="center"><img src="<?php echo $assets ?>images/logo2.png" alt="" width="192" height="119" /></td>
+        <td><img src="<?php echo $assets ?>images/blank.gif" width="650" height="10" /><br />
+          <img src="<?php echo $assets ?>images/coop.png" alt="" width="539" height="109" /></td>
         </tr>
       <tr>
         <td align="center" bgcolor="#EEEEEE"><table width="100%" border="0" cellspacing="5" cellpadding="5">
@@ -65,7 +68,7 @@ function MM_swapImage() { //v3.0
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td align="center"><a href="login.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('banca','','images/bancaVirtual1.png',1)"><img src="images/bancaVirtual.png" alt="Banca Virtual" width="186" height="43" id="banca" border="0" /></a></td>
+              <td align="center"><a href="<?php echo base_url() ?>index.php/sitio/login" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('banca','','<?php echo $assets ?>images/bancaVirtual1.png',1)"><img src="<?php echo $assets ?>images/bancaVirtual.png" alt="Banca Virtual" width="186" height="43" id="banca" border="0" /></a></td>
           </tr>
           <tr>
             <td>&nbsp;</td>
@@ -78,15 +81,15 @@ function MM_swapImage() { //v3.0
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
               <td><ul id="MenuBar1" class="MenuBarHorizontal">
-          <li><a href="index.php">Inicio</a>            </li>
-          <li><a href="quienes.php" target="contenido">Quienes Somos</a></li>
-          <li><a href="servicio.php" target="contenido">Servicios</a></li>
-          <li><a href="simulador.php" target="contenido">Simulador</a></li>
-          <li><a href="contactos.php" target="contenido">Contacto</a></li>
+          <li><a href="<?php echo base_url() ?>index.php/sitio/index">Inicio</a>            </li>
+          <li><a href="<?php echo base_url() ?>index.php/sitio/quienes" target="contenido">Quienes Somos</a></li>
+          <li><a href="<?php echo base_url() ?>index.php/sitio/servicio" target="contenido">Servicios</a></li>
+          <li><a href="<?php echo base_url() ?>index.php/sitio/simulador" target="contenido">Simulador</a></li>
+          <li><a href="<?php echo base_url() ?>index.php/sitio/contactos" target="contenido">Contacto</a></li>
         </ul></td>
             </tr>
             <tr>
-              <td align="center"><iframe id="contenido" name="contenido" src="inicio1.php">__</iframe><br />
+              <td align="center"><iframe id="contenido" name="contenido" src="<?php echo base_url() ?>index.php/sitio/inicio1">__</iframe><br />
 </td>
             </tr>
         </table></td>
@@ -98,7 +101,7 @@ function MM_swapImage() { //v3.0
 </tr>
 </table>
 <script type="text/javascript">
-var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"<?php echo $assets ?>SpryAssets/SpryMenuBarDownHover.gif", imgRight:"<?php echo $assets ?>SpryAssets/SpryMenuBarRightHover.gif"});
 </script>
 </body>
 </html>

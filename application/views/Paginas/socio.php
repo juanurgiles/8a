@@ -1,8 +1,8 @@
-<?php require_once('../Connections/cooperativa.php'); ?><?php if (!isset($_SESSION)) {
-  session_start();
-}?>
+<?php 
+$assets = base_url()."assets/";
+?>
 <?php
-
+/*
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
@@ -48,45 +48,40 @@ mysql_select_db($database_cooperativa, $cooperativa);
 $query_personal = "SELECT idPersonal, codigoPersonal, cedulaPersonal, nombrePersonal, apellidoPersonal FROM personal where socio=".$_GET['id'];
 $personal = mysql_query($query_personal, $cooperativa) or die(mysql_error());
 $row_personal = mysql_fetch_assoc($personal);
-$totalRows_personal = mysql_num_rows($personal);
+$totalRows_personal = mysql_num_rows($personal);*/
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Personal</title>
-<style type="text/css" title="currentStyle">@import "../media/css/demo_page.css";@import "../media/css/demo_table.css";</style>
-<script type="text/javascript" language="javascript" src="../media/js/jquery.js"></script>
-<script type="text/javascript" language="javascript" src="../media/js/jquery.dataTables.js"></script>
-<script type="text/javascript">
-			jQuery.fn.dataTableExt.aTypes.push(
-				function ( sData ) {
-					return 'html';
-				}
-			);
-			
-			$(document).ready(function() {
-
-				$('#example').dataTable();
-			} );
-		</script>
-<?php if ($error<>""){ ?>
-<script>
+	<meta charset="utf-8" />
+<?php 
+foreach($tabla->css_files as $file): ?>
+	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+<?php endforeach; ?>
+<?php foreach($tabla->js_files as $file): ?>
+	<script src="<?php echo $file; ?>"></script>
+<?php endforeach; ?>
+<?php /*if ($error<>""){ ?>
+<!--<script>
 alert("<?php echo $error; ?>");
-</script>
-<?php } ?>
+</script>-->
+<?php } */?>
 </head>
 
 <body>
-<h1>Listado de <?php echo $_GET['id']==1?"Socios":"Clientes"; ?></h1>
+<h1>Listado de <?php echo $id==1?"Socios":"Clientes"; ?></h1>
 <p>&nbsp;</p>
-<table class="display" id="example">
+<div>
+    <?php echo $tabla->output ?>
+</div>
+<!--<table class="display" id="example">
         <thead>
         <tr>
           <th>Codigo</th>
           <th>Nombre </th>
           <td>&nbsp;</td>
-          <td><a href="socio_i.php?id=<?php echo $_GET['id']; ?>"><img src="../images/b_insrow.png" width="16" height="16" border="0" /></a></td>
+          <td><a href="socio_i.php?id=<?php /*echo $_GET['id']; ?>"><img src="../images/b_insrow.png" width="16" height="16" border="0" /></a></td>
           <td>&nbsp;</td>
   </tr></thead><tbody>
         <?php do { ?>
@@ -97,11 +92,11 @@ alert("<?php echo $error; ?>");
           <td><a href="socio_u.php?ids=<?php echo $row_personal['idPersonal']; ?>"><img src="../images/b_edit.png" width="16" height="16" border="0" /></a></td>
           <td><a href="socio.php?id=<?php echo $_GET['id']; ?>&idse=<?php echo $row_personal['idPersonal']; ?>"><img src="../images/b_drop.png" width="16" height="16" border="0" /></a></td>
         </tr>
-        <?php } while ($row_personal = mysql_fetch_assoc($personal)); ?>
+        <?php } while ($row_personal = mysql_fetch_assoc($personal)); */?>
 </tbody>
-</table>
+</table>-->
 </body>
 </html>
 <?php
-mysql_free_result($personal);
+//mysql_free_result($personal);
 ?>

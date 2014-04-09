@@ -1,3 +1,6 @@
+<?php 
+$assets = base_url()."assets/";
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -13,10 +16,10 @@
 	color: #FF0000;
 }
 </style>
-<link href="SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<link href="SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
-<script src="SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
-<script src="SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
+<link href="<?php echo $assets ?>SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $assets ?>SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $assets ?>SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+<script src="<?php echo $assets ?>SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -26,7 +29,7 @@
     <td bgcolor="#FFFFFF">&nbsp;</td>
     <td bgcolor="#FFFFFF"><table width="0%" border="0" align="center" cellpadding="2" cellspacing="0" class="ttex">
       <tr>
-        <td colspan="2" align="center" bgcolor="#FFFFFF" class="tex"><img src="images/cont.jpg" alt="" width="225" height="113" /></td>
+        <td colspan="2" align="center" bgcolor="#FFFFFF" class="tex"><img src="<?php echo $assets ?>images/cont.jpg" alt="" width="225" height="113" /></td>
       </tr>
       <tr>
         <td width="61" align="left" bgcolor="#DEF2FE" class="tex"><strong>Localidad:</strong></td>
@@ -42,7 +45,7 @@
       </tr>
       <tr>
         <td align="left" valign="top" class="tex"><strong>Direcci&oacute;n: </strong></td>
-        <td align="left" class="tex">Calle Quito y Juan Abel Echeverría</td>
+        <td align="left" class="tex">Calle Quito y Juan Abel Echeverrï¿½a</td>
       </tr>
       <tr>
         <td align="left" valign="top" bgcolor="#DEF2FE" class="tex"><strong>Email</strong>: </td>
@@ -59,7 +62,7 @@
                             <table width="100%" border="0" cellspacing="0" cellpadding="5">
                               <tr>
                                 <td><div align="justify" class="Estilo43">
-                                  <p><strong>Contáctese</strong> Cooperativa </p>
+                                  <p><strong>Contï¿½ctese</strong> Cooperativa </p>
                                 </div></td>
                               </tr>
                             </table>
@@ -87,7 +90,7 @@
                                   </div></td>
                                 <td valign="top" bgcolor="#DEF2FE"><div align="left"><span id="sprytextfield4"><span id="sprytextfield8">
                                   <input name="Email" type="text" id="Email" size="35" />
-                                  <span class="textfieldRequiredMsg">Se necesita un valor.</span></span><span class="textfieldRequiredMsg"><span class="alertasRojo">Se requiere el ingreso de su Email</span>.</span><span class="textfieldInvalidFormatMsg">Formato no válido.</span></span></div></td>
+                                  <span class="textfieldRequiredMsg">Se necesita un valor.</span></span><span class="textfieldRequiredMsg"><span class="alertasRojo">Se requiere el ingreso de su Email</span>.</span><span class="textfieldInvalidFormatMsg">Formato no vï¿½lido.</span></span></div></td>
                                 </tr>
                               <tr>
                                 <td align="right" valign="top" bgcolor="#DEF2FE"><div align="justify" class="Estilo35">
@@ -95,7 +98,7 @@
                                   </div></td>
                                 <td valign="top" bgcolor="#DEF2FE"><div align="left"><span id="sprytextfield2"><span id="sprytextfield9">
                                     <input name="Telefono" type="text" id="Telefono" size="35" />
-                                    <span class="textfieldRequiredMsg"> necesita un valor.</span></span><span class="textfieldRequiredMsg"><span class="alertasRojo">Se requiere el ingreso Número telefónico</span>.</span><span class="textfieldInvalidFormatMsg">Formato no válido.</span></span>
+                                    <span class="textfieldRequiredMsg"> necesita un valor.</span></span><span class="textfieldRequiredMsg"><span class="alertasRojo">Se requiere el ingreso Nï¿½mero telefï¿½nico</span>.</span><span class="textfieldInvalidFormatMsg">Formato no vï¿½lido.</span></span>
                                 </div></td>
                                 </tr>
                               <tr>

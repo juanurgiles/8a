@@ -1,13 +1,13 @@
-<?php if (!isset($_SESSION)) {
-  session_start();
-}?>
+<?php 
+$assets = base_url()."assets/";
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Administrador - Cooperativa 8 de Agosto</title>
-<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
-<link href="SpryAssets/SpryMenuBarVertical.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $assets ?>SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<link href="<?php echo $assets ?>SpryAssets/SpryMenuBarVertical.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 body {
 	background-color: #000;
@@ -44,53 +44,53 @@ function MM_swapImage() { //v3.0
 </script>
 </head>
 
-<body onload="MM_preloadImages('images/salir1.png')">
+<body onload="MM_preloadImages('<?php echo $assets ?>images/salir1.png')">
 <table width="0%" border="3" align="center" cellpadding="5" cellspacing="0">
   <tr>
     <td bgcolor="#05619B"><table border="0" align="center" cellpadding="5" cellspacing="0">
       <tr>
-        <td align="center" bgcolor="#05619B"><img src="images/logo2.png" alt="" width="192" height="119" /></td>
-        <td colspan="2"><img src="images/blank.gif" width="650" height="10" /><br />
-          <img src="images/coop.png" alt="" width="539" height="109" /></td>
+        <td align="center" bgcolor="#05619B"><img src="<?php echo $assets ?>images/logo2.png" alt="" width="192" height="119" /></td>
+        <td colspan="2"><img src="<?php echo $assets ?>images/blank.gif" width="650" height="10" /><br />
+          <img src="<?php echo $assets ?>images/coop.png" alt="" width="539" height="109" /></td>
         </tr>
       <tr>
         <td bgcolor="#EEEEEE"></td>
         <td bgcolor="#FFFFFF"><h2><em>Men&uacute; de Administrador</em></h2></td>
-        <td align="right" bgcolor="#FFFFFF"><a href="desconectar.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','images/salir1.png',1)"><img src="images/salir.png" alt="Salir" width="72" height="37" id="Image4" border="0" /></a></td>
+        <td align="right" bgcolor="#FFFFFF"><a href="desconectar.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','<?php echo $assets ?>images/salir1.png',1)"><img src="<?php echo $assets ?>images/salir.png" alt="Salir" width="72" height="37" id="Image4" border="0" /></a></td>
       </tr>
       <tr>
         <td valign="top" bgcolor="#EEEEEE"><ul id="MenuBar1" class="MenuBarVertical">
           <li><a href="#" class="MenuBarItemSubmenu"><strong>Socios</strong></a>
             <ul>
-              <li><a href="Paginas/socio.php?id=1" target="contenido">Listado de Socios</a></li>
-              <li><a href="Paginas/socio.php?id=0" target="contenido">Listado de Clientes</a></li>
-              <li><a href="Paginas/s_cuentas.php" target="contenido">Movimiento de Cuentas</a></li>
-              <li><a href="Paginas/creditos_l.php" target="contenido">Créditos</a></li>
-              <li><a href="Paginas/aporteperfil.php" target="contenido">Aportes</a></li>
+              <li><a href="<?php echo base_url() ?>index.php/sistema/socio/1" target="contenido">Listado de Socios</a></li>
+              <li><a href="<?php echo base_url() ?>index.php/sistema/socio/0" target="contenido">Listado de Clientes</a></li>
+              <li><a href="<?php echo base_url() ?>index.php/sistema/s_cuentas.php" target="contenido">Movimiento de Cuentas</a></li>
+              <li><a href="<?php echo base_url() ?>index.php/sistema/creditos_l.php" target="contenido">Crï¿½ditos</a></li>
+              <li><a href="<?php echo base_url() ?>index.php/sistema/aporteperfil.php" target="contenido">Aportes</a></li>
               </ul>
             </li>
           <li><a href="#" class="MenuBarItemSubmenu"><strong>Reportes</strong></a>
             <ul>
               <li><a href="actual/retiro_l.php" target="contenido">Transacciones</a></li>
-              <li><a href="Paginas/aporteperfil.php" target="contenido">Aportes </a></li>
-              <li><a href="Paginas/creditos_l.php" target="contenido">Crédito</a></li>
+              <li><a href="<?php echo base_url() ?>index.php/sistema/aporteperfil.php" target="contenido">Aportes </a></li>
+              <li><a href="<?php echo base_url() ?>index.php/sistema/creditos_l.php" target="contenido">Crï¿½dito</a></li>
                      </ul>
           </li> 
 <li><a href="#" class="MenuBarItemSubmenu"><strong>Mantenimiento</strong></a>
   <ul>
-              <li><a href="Paginas/opciones_l.php?tipo=2" target="contenido">Interés Mora</a>              </li>
-<li><a href="Paginas/opciones_lt.php?tipo=TipoCuenta" target="contenido">Tipo Cuenta</a></li>
-              <li><a href="Paginas/opciones_lt.php?tipo=Estado" target="contenido">Estados</a></li>
-              <li><a href="Paginas/opciones_li.php?tipo=TipoCredito" target="contenido">Tipo de Crédito</a></li>
-              <li><a href="Paginas/opciones_lt.php?tipo=EstadoCredito" target="contenido">Estado de Crédito</a></li>
-              <li><a href="Paginas/opciones_lt.php?tipo=TipoTransaccion" target="contenido">Tipo de Transacción</a></li>
-               <li><a href="Paginas/opciones_li.php?tipo=Aporte" target="contenido">Valor de Aporte</a></li>
-               <li><a href="Paginas/opciones_li.php?tipo=MoraAporte" target="contenido">Mora en Aporte</a></li>
+              <li><a href="<?php echo base_url() ?>index.php/sistema/opciones_l.php?tipo=2" target="contenido">Interï¿½s Mora</a>              </li>
+<li><a href="<?php echo base_url() ?>index.php/sistema/opciones_lt.php?tipo=TipoCuenta" target="contenido">Tipo Cuenta</a></li>
+              <li><a href="<?php echo base_url() ?>index.php/sistema/opciones_lt.php?tipo=Estado" target="contenido">Estados</a></li>
+              <li><a href="<?php echo base_url() ?>index.php/sistema/opciones_li.php?tipo=TipoCredito" target="contenido">Tipo de Crï¿½dito</a></li>
+              <li><a href="<?php echo base_url() ?>index.php/sistema/opciones_lt.php?tipo=EstadoCredito" target="contenido">Estado de Crï¿½dito</a></li>
+              <li><a href="<?php echo base_url() ?>index.php/sistema/opciones_lt.php?tipo=TipoTransaccion" target="contenido">Tipo de Transacciï¿½n</a></li>
+               <li><a href="<?php echo base_url() ?>index.php/sistema/opciones_li.php?tipo=Aporte" target="contenido">Valor de Aporte</a></li>
+               <li><a href="<?php echo base_url() ?>index.php/sistema/opciones_li.php?tipo=MoraAporte" target="contenido">Mora en Aporte</a></li>
   </ul>
         </li>
         <li><a href="desconectar.php"><strong>Salir</strong></a></li>
         </ul></td>
-        <td colspan="2" bgcolor="#FFFFFF"><iframe id="contenido" name="contenido" src="inicio.php">__</iframe></td>
+        <td colspan="2" bgcolor="#FFFFFF"><iframe id="contenido" name="contenido" src="<?php echo base_url() ?>index.php/sistema/inicio">__</iframe></td>
         </tr>
       <tr>
         <td>&nbsp;</td>
@@ -100,7 +100,7 @@ function MM_swapImage() { //v3.0
 </tr>
 </table>
 <script type="text/javascript">
-var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgRight:"<?php echo $assets ?>SpryAssets/SpryMenuBarRightHover.gif"});
 </script>
 </body>
 </html>
